@@ -1,0 +1,17 @@
+@import "../../../variables";
+
+.nav-btn {
+  padding: 3rem 1.5rem;
+  margin: 0 0.5rem;
+  border-bottom: 3px solid transparent;
+
+  &:hover {
+    border-bottom: 3px solid $grey-dark;
+  }
+
+  &_label {
+    color: $grey-dark;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+}

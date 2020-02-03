@@ -1,0 +1,68 @@
+@import "../../../variables";
+
+.singlePage {
+  display: flex;
+  flex-direction: column;
+
+  .container {
+    width: 110rem;
+    margin: 0 auto;
+    display: flex;
+    &-left {
+      max-width: 70rem;
+    }
+
+    &-right {
+      width: 40%;
+    }
+  }
+
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+
+    h1 {
+      flex-basis: 1;
+    }
+    .owner {
+      flex-basis: 0.6;
+    }
+  }
+
+  &_highlights {
+    padding: 2rem 2rem;
+    border-bottom: 1px solid $grey-light;
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      li {
+        font-size: 1.4rem;
+        color: $grey-medium;
+        margin-right: 3rem;
+      }
+    }
+  }
+
+  &_description {
+    p {
+      line-height: 1.2;
+      letter-spacing: 1px;
+    }
+  }
+
+  &_amenities {
+    ul {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  &_rules {
+    ul {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

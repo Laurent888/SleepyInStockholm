@@ -1,0 +1,19 @@
+@import "../../variables";
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  border-bottom: 1px solid $grey-light;
+
+  &_left {
+    display: flex;
+    align-items: center;
+  }
+  &_list {
+    display: flex;
+    align-items: center;
+  }
+}

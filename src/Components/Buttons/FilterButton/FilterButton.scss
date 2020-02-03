@@ -1,0 +1,24 @@
+@import "../../../variables";
+
+.filter-btn {
+  border: 1px solid $grey-medium;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem;
+  padding: 0.8rem 2rem;
+  background-color: #fff;
+
+  &_label {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: $grey-dark;
+    background-color: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+    border: 1px solid $grey-dark;
+  }
+}

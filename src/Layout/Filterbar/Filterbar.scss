@@ -1,0 +1,9 @@
+@import "../../variables";
+
+.filterbar {
+  width: 100%;
+  padding: 1rem 5rem;
+  display: flex;
+
+  border-bottom: 1px solid $grey-light;
+}

@@ -1,0 +1,24 @@
+@import "../../variables";
+
+.optionSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 0;
+  border-bottom: 1px solid $grey-light;
+
+  &_title {
+    font-weight: 700;
+    color: $grey-dark;
+    margin-bottom: 2rem;
+  }
+
+  &_grid {
+    width: 100%;
+    ul {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-row-gap: 3rem;
+    }
+  }
+}
