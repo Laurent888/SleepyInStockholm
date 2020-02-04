@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const NavButton = props => {
   return (
-    <Link to="/">
+    <Link to={props.url}>
       <div className="nav-btn">
         {props.icon ? (
           <div className="nav-btn_icon">

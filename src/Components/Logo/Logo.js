@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Logo.scss";
 import logo from "../../img/logo.png";
 
 const Logo = () => {
   return (
-    <div className="logo">
+    <Link className="logo" to="/">
       <img
         src={logo}
         alt="logo"
@@ -15,7 +16,7 @@ const Logo = () => {
           height: "100%"
         }}
       />
-    </div>
+    </Link>
   );
 };
 

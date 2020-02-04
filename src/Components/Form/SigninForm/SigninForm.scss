@@ -1,0 +1,72 @@
+@import "../../../variables";
+
+.signin-form {
+  width: 500px;
+  height: 550px;
+  margin: 5rem auto;
+  background: rgb(247, 247, 247);
+  background: linear-gradient(
+    194deg,
+    rgba(247, 247, 247, 1) 65%,
+    rgba(255, 198, 157, 1) 100%
+  );
+
+  padding: 3rem;
+  box-shadow: 2px 2px 1rem rgba(51, 51, 51, 0.281);
+
+  .form-signin {
+    margin-top: 2rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .form-group {
+      width: 100%;
+      margin: 1rem 0;
+      position: relative;
+
+      label {
+        position: absolute;
+        left: 1rem;
+        top: 32%;
+        font-size: 1.4rem;
+        transition: all 0.2s ease-in-out;
+
+        // &:hover {
+        //   cursor: text;
+        // }
+      }
+
+      &_input {
+        width: 100%;
+        height: 5rem;
+        margin: 0.5rem 0;
+        padding: 0.5rem 1rem;
+        background-color: transparent;
+        border: 1px solid $grey-medium;
+        border-radius: 0.5rem;
+        font-size: 2rem;
+        z-index: 5;
+        outline: none;
+
+        &:focus,
+        &.not-empty {
+          ~ label {
+            top: -1.5rem;
+            left: 0.5rem;
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+
+  .google {
+    display: flex;
+    flex-direction: column;
+    height: 8rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

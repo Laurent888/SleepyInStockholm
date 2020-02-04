@@ -1,10 +1,13 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./Navbar.scss";
 import Logo from "../../Components/Logo/Logo";
 import NavButton from "../../Components/Buttons/NavButton/NavButton";
 import SearchBar from "../../Components/SearchBar/SearchBar";
+import LogoutButton from "../../Components/Buttons/NavButton/LogoutButton";
+import { connect } from "react-redux";
+import { setCurrentUser } from "../../redux/user/userActions";
 
-const Navbar = () => {
+const Navbar = ({ currentUser }) => {
   return (
     <div className="navbar">
       <div className="navbar_left">
@@ -16,17 +19,29 @@ const Navbar = () => {
 
       <ul className="navbar_list">
         <li>
-          <NavButton label="Become a host" />
+          <NavButton label="Become a host" url="/" />
         </li>
-        <li>
-          <NavButton label="Sign up" />
-        </li>
-        <li>
-          <NavButton label="Sign in" />
-        </li>
+        {currentUser ? (
+          <li>
+            <LogoutButton />
+          </li>
+        ) : (
+          <Fragment>
+            <li>
+              <NavButton label="Sign up" url="/signup" />
+            </li>
+            <li>
+              <NavButton label="Sign in" url="/signin" />
+            </li>
+          </Fragment>
+        )}
       </ul>
     </div>
   );
 };
 
-export default Navbar;
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+});
+
+export default connect(mapStateToProps)(Navbar);
