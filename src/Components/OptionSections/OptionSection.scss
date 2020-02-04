@@ -19,6 +19,17 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-row-gap: 3rem;
+
+      div {
+        font-size: 2rem;
+        text-transform: capitalize;
+        color: $grey-dark;
+      }
+      .mdi {
+        color: $secondary-color;
+        font-size: 3rem;
+        margin-right: 1rem;
+      }
     }
   }
 }

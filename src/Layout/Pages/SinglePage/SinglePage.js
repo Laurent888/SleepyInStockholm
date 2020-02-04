@@ -3,6 +3,7 @@ import "./SinglePage.scss";
 import { connect } from "react-redux";
 import Hero from "../../../Components/HeroSinglePage/HeroSinglePage";
 import OptionSection from "../../../Components/OptionSections/OptionSection";
+import MapComponent from "../../../Components/Maps/Maps";
 
 const SinglePage = ({ product, match }) => {
   // Look for the single appartment using the ID
@@ -15,7 +16,13 @@ const SinglePage = ({ product, match }) => {
     owner,
     description,
     amenities,
-    rules
+    rules,
+    reviewsNumber,
+    reviewsRate,
+    maxGuests,
+    typeRoom,
+    price,
+    coordinates
   } = productInfo[0];
   //////////////////////
   return (
@@ -29,27 +36,59 @@ const SinglePage = ({ product, match }) => {
           </div>
           <div className="singlePage_highlights">
             <ul>
-              <li>MAX GUESTS</li>
-              <li>ROOMS</li>
-              <li>MAX GUESTS</li>
-              <li>PRICE</li>
+              <li>{maxGuests} guests max</li>
+              <li>{`${typeRoom}`}</li>
+              <li>{price}&euro; per night</li>
             </ul>
           </div>
-          <div className="singlePage_description">
+          <div className="singlePage_description mt-2">
             <p>{description}</p>
           </div>
           <div className="singlePage_amenities">
             <OptionSection title="Amenities" options={amenities} />
           </div>
           <div className="singlePage_rules">
-            <OptionSection title="Rules" options={rules} />
+            <OptionSection title="Suitable for" options={rules} />
           </div>
-          <div className="reviews">
-            <div>Star and rates</div>
-            <div>reviews</div>
+          <div className="reviews mt-2">
+            <h3>Reviews</h3>
+            <div className="reviews_list mt-2">
+              <div className="reviews_list-star">
+                <span className="mdi mdi-star"></span>
+                {reviewsRate}
+              </div>
+              <div className="reviews_list-number">
+                <span>{reviewsNumber}</span> reviews
+              </div>
+            </div>
+          </div>
+          <div className="map-section mt-2">
+            <h3>Location</h3>
+            <div className="map-section_map mt-3">
+              <MapComponent
+                googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_APIKEY}`}
+                loadingElement={<div style={{ height: `100%` }} />}
+                containerElement={<div style={{ height: `400px` }} />}
+                mapElement={<div style={{ height: `100%` }} />}
+                isMarkerShown
+                latLng={{ lat: coordinates[0], lng: coordinates[1] }}
+              />
+            </div>
           </div>
         </div>
-        <div className="container-right">asdasdasdas</div>
+        <div className="container-right">
+          <div className="booking-order">
+            <div>
+              <h3>Number of nights</h3>
+              <input type="text" placeholder="Type here" />
+            </div>
+            <div>
+              <h3>Guest</h3>
+              <input type="text" />>
+            </div>
+            <button>Book </button>
+          </div>
+        </div>
       </div>
     </div>
   );

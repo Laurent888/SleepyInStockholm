@@ -20,18 +20,20 @@
   &_header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 3rem;
 
     h1 {
       flex-basis: 1;
     }
     .owner {
+      padding-left: 5rem;
       flex-basis: 0.6;
     }
   }
 
   &_highlights {
-    padding: 2rem 2rem;
+    padding: 2rem 0;
     border-bottom: 1px solid $grey-light;
     ul {
       display: flex;
@@ -39,8 +41,8 @@
       align-items: center;
 
       li {
-        font-size: 1.4rem;
-        color: $grey-medium;
+        font-size: 1.6rem;
+        color: $grey-dark;
         margin-right: 3rem;
       }
     }
@@ -64,5 +66,52 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
     }
+  }
+
+  .reviews {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid $grey-light;
+
+    &_list {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      &-star {
+        padding-right: 1rem;
+      }
+
+      &-number {
+        padding: 0 1rem;
+        border-left: 1px solid $grey-light;
+        span {
+          padding: 0 0.5rem;
+          font-weight: 700;
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+
+  .map-section {
+    height: 50rem;
+    margin-bottom: 6rem;
+    border-bottom: 1px solid $grey-light;
+  }
+}
+
+.container-right {
+  display: flex;
+  justify-content: flex-end;
+
+  .booking-order {
+    width: 33rem;
+    height: 40rem;
+    border: 1px solid $secondary-color;
+    box-shadow: 1px 1px 5px $grey-light;
+    padding: 2rem;
   }
 }

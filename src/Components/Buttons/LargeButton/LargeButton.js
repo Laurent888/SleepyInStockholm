@@ -3,9 +3,9 @@ import "./LargeButton.scss";
 
 const LargeButton = props => {
   return (
-    <div className="large-btn" onClick={props.clicked}>
+    <button className="large-btn" onClick={props.clicked} type={props.type}>
       {props.label}
-    </div>
+    </button>
   );
 };
 

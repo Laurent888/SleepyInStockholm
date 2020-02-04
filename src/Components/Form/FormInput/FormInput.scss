@@ -1,0 +1,42 @@
+@import "../../../variables";
+
+.form-group {
+  width: 100%;
+  margin: 1rem 0;
+  position: relative;
+
+  label {
+    position: absolute;
+    left: 1rem;
+    top: 32%;
+    font-size: 1.4rem;
+    transition: all 0.2s ease-in-out;
+    z-index: 4;
+    user-select: none;
+    &:hover {
+      cursor: text;
+    }
+  }
+
+  &_input {
+    width: 100%;
+    height: 5rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 1px solid $grey-medium;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    z-index: 10;
+    outline: none;
+
+    &:focus,
+    &.not-empty {
+      ~ label {
+        top: -1.5rem;
+        left: 0.5rem;
+        font-size: 1.3rem;
+      }
+    }
+  }
+}

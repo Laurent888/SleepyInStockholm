@@ -2,9 +2,45 @@ import React from "react";
 import "./OptionSection.scss";
 
 const OptionSection = props => {
-  console.log(Object.keys(props.options));
   const options = Object.keys(props.options).map(item => {
-    return props.options[item] === "yes" ? <p key={item}>{item}</p> : null;
+    // Define the icon for each option.
+    let icon = "";
+    switch (item) {
+      case "wifi":
+        icon = "wifi";
+        break;
+      case "dryer":
+        icon = "tumble-dryer";
+        break;
+      case "kitchen":
+        icon = "silverware-fork-knife";
+        break;
+      case "tv":
+        icon = "television-classic";
+        break;
+      case "washer":
+        icon = "dishwasher";
+        break;
+      case "pets":
+        icon = "dog-side";
+        break;
+      case "smoking":
+        icon = "smoking";
+        break;
+      case "parties":
+        icon = "party-popper";
+        break;
+      default:
+        icon = "";
+    }
+    return props.options[item] === "yes" ? (
+      <li key={item}>
+        <div>
+          <span className={`mdi mdi-${icon}`}></span>
+          {item}
+        </div>
+      </li>
+    ) : null;
   });
 
   return (

@@ -45,6 +45,7 @@ const data = [
   {
     id: 1,
     address: "Vanadisvägen 12-16",
+    coordinates: [59.347787, 18.049186],
     postal: "113 46",
     city: "stockholm",
     typeRoom: "1",
@@ -70,6 +71,7 @@ const data = [
   {
     id: 2,
     address: "Tulegatan 27-21",
+    coordinates: [59.344146, 18.060345],
     postal: "113 53",
     city: "stockholm",
     typeRoom: "1",
@@ -95,6 +97,7 @@ const data = [
   {
     id: 3,
     address: "Östermalmsgatan 59-55",
+    coordinates: [59.341959, 18.078814],
     postal: "114 50",
     city: "stockholm",
     typeRoom: "3",
@@ -120,6 +123,7 @@ const data = [
   {
     id: 4,
     address: "Saltmätargatan 3-1",
+    coordinates: [59.339217, 18.058915],
     postal: "111 60",
     city: "stockholm",
     typeRoom: "2",
@@ -145,6 +149,7 @@ const data = [
   {
     id: 5,
     address: "Dalagatan 21-19",
+    coordinates: [59.34339, 18.043814],
     postal: "113 27",
     city: "stockholm",
     typeRoom: "1",
@@ -170,6 +175,7 @@ const data = [
   {
     id: 6,
     address: "Anna Whitlocks Gata 11",
+    coordinates: [59.347544, 18.036468],
     postal: "113 65",
     city: "stockholm",
     typeRoom: "3",
@@ -195,6 +201,7 @@ const data = [
   {
     id: 7,
     address: "Inedalsgatan 10-16",
+    coordinates: [59.335025, 18.036186],
     postal: "112 33",
     city: "stockholm",
     typeRoom: "2",
@@ -221,6 +228,7 @@ const data = [
   {
     id: 8,
     address: "Wargentinsgatan 6",
+    coordinates: [59.332967, 18.041081],
     postal: "112 29",
     city: "stockholm",
     typeRoom: "1",
@@ -246,6 +254,7 @@ const data = [
   {
     id: 9,
     address: "Parmmätargatan 15-13",
+    coordinates: [59.329917, 18.047397],
     postal: "112 24",
     city: "stockholm",
     typeRoom: "1",
@@ -261,7 +270,7 @@ const data = [
     bedNumber: 3,
     reviewsNumber: 248,
     reviewsRate: "2.21",
-    rules: { smoking: "no", pets: "no", parties: "yes" },
+    rules: { smoking: "no", pets: "yes", parties: "yes" },
     owner: "Damian",
     images: [ai1, ai2, ai3],
     title: "Stylish house 5 min from Waterfront",
@@ -271,6 +280,7 @@ const data = [
   {
     id: 10,
     address: "Timmermansgatan 34a",
+    coordinates: [59.316333, 18.060865],
     postal: "118 55",
     city: "stockholm",
     typeRoom: "3",
@@ -296,6 +306,7 @@ const data = [
   {
     id: 11,
     address: "Björngårdsgatan 14A",
+    coordinates: [59.315781, 18.065924],
     postal: "118 52",
     city: "stockholm",
     typeRoom: "2",
@@ -321,6 +332,7 @@ const data = [
   {
     id: 12,
     address: "Möregatan 5",
+    coordinates: [59.312081, 18.070186],
     postal: "118 27",
     city: "stockholm",
     typeRoom: "1",
@@ -336,7 +348,7 @@ const data = [
     bedNumber: 2,
     reviewsNumber: 697,
     reviewsRate: "3.19",
-    rules: { smoking: "no", pets: "no", parties: "yes" },
+    rules: { smoking: "no", pets: "yes", parties: "yes" },
     owner: "Gustav",
     images: [al1, al2, al3],
     title: "Charming luminous apartment",
@@ -346,6 +358,7 @@ const data = [
   {
     id: 13,
     address: "Öregrundsgatan 13-11",
+    coordinates: [59.345462, 18.112466],
     postal: "115 59",
     city: "stockholm",
     typeRoom: "2",
@@ -371,6 +384,7 @@ const data = [
   {
     id: 14,
     address: "Fjärde Bassängvägen 10",
+    coordinates: [59.347868, 18.112526],
     postal: "115 41",
     city: "stockholm",
     typeRoom: "1",
@@ -386,7 +400,7 @@ const data = [
     bedNumber: 1,
     reviewsNumber: 291,
     reviewsRate: "2.70",
-    rules: { smoking: "no", pets: "no", parties: "yes" },
+    rules: { smoking: "yes", pets: "no", parties: "yes" },
     owner: "Erica",
     images: [an1, an2, an3],
     title: "Peaceful Apartment w/ a Dryer + Pool",

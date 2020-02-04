@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./SigninForm.scss";
+import { auth } from "../../../firebase/firebase";
 import LargeButton from "../../Buttons/LargeButton/LargeButton";
 import ButtonGoogle from "../../Buttons/ButtonGoogle/ButtonGoogle";
+import FormInput from "../FormInput/FormInput";
 
 const SigninForm = () => {
   const [signin, setSignin] = useState({
@@ -9,6 +11,18 @@ const SigninForm = () => {
     password: "",
     password2: ""
   });
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const email = signin.email;
+    const password = signin.password;
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        setSignin({ email: "", password: "", password2: "" });
+      })
+      .catch(err => console.log(err));
+  };
 
   const handleChangeInput = e => {
     setSignin({
@@ -20,39 +34,24 @@ const SigninForm = () => {
   return (
     <div className="signin-form">
       <h1 className="l-heading">Log in</h1>
-      <form className="form-signin" onSubmit={() => console.log("Submitted")}>
-        <div className="form-group">
-          <input
-            className={`form-group_input ${
-              signin.email !== "" ? "not-empty" : "empty"
-            }`}
-            type="email"
-            name="email"
-            id="email"
-            value={signin.email}
-            onChange={handleChangeInput}
-            autoComplete="username"
-            required
-          />
-          <label htmlFor="email">Email address</label>
-        </div>
-        <div className="form-group">
-          <input
-            className={`form-group_input ${
-              signin.password !== "" ? "not-empty" : "empty"
-            }`}
-            type="password"
-            name="password"
-            id="password"
-            value={signin.password}
-            onChange={handleChangeInput}
-            autoComplete="new-password"
-            required
-          />
-          <label htmlFor="password">Password</label>
-        </div>
+      <form className="form-signin" onSubmit={handleSubmit}>
+        <FormInput
+          type="email"
+          name="email"
+          label="Email Address"
+          value={signin.email}
+          handleChangeInput={handleChangeInput}
+        />
+
+        <FormInput
+          type="password"
+          name="password"
+          label="Password"
+          value={signin.password}
+          handleChangeInput={handleChangeInput}
+        />
         <div className="mt-2">
-          <LargeButton label="Log in" />
+          <LargeButton label="Log in" type="submit" />
         </div>
         <div className="google mt-2">
           or

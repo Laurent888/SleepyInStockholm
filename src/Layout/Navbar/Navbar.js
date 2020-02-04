@@ -5,7 +5,6 @@ import NavButton from "../../Components/Buttons/NavButton/NavButton";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import LogoutButton from "../../Components/Buttons/NavButton/LogoutButton";
 import { connect } from "react-redux";
-import { setCurrentUser } from "../../redux/user/userActions";
 
 const Navbar = ({ currentUser }) => {
   return (
@@ -22,9 +21,14 @@ const Navbar = ({ currentUser }) => {
           <NavButton label="Become a host" url="/" />
         </li>
         {currentUser ? (
-          <li>
-            <LogoutButton />
-          </li>
+          <Fragment>
+            <li>
+              <NavButton label="Homes" url="/homes" />
+            </li>
+            <li>
+              <LogoutButton />
+            </li>
+          </Fragment>
         ) : (
           <Fragment>
             <li>
