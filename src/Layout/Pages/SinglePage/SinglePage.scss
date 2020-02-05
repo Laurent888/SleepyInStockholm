@@ -102,16 +102,3 @@
     border-bottom: 1px solid $grey-light;
   }
 }
-
-.container-right {
-  display: flex;
-  justify-content: flex-end;
-
-  .booking-order {
-    width: 33rem;
-    height: 40rem;
-    border: 1px solid $secondary-color;
-    box-shadow: 1px 1px 5px $grey-light;
-    padding: 2rem;
-  }
-}

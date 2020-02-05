@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./BookingForm.scss";
 import Calendar from "react-calendar";
 import LargeButton from "../Buttons/LargeButton/LargeButton";
+import BookingPriceDetails from "./BookingPriceDetails/BookingPriceDetails";
 
 const BookingForm = ({ price, reviewsNumber, reviewsRate, maxGuests }) => {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -10,10 +11,11 @@ const BookingForm = ({ price, reviewsNumber, reviewsRate, maxGuests }) => {
     checkInDate: "",
     checkOutDate: ""
   });
+  const [numberGuest, setNumberGuest] = useState(0);
 
   // Render the options for the number of guests
   const renderOptionGuestNb = [...new Array(maxGuests)].map((item, idx) => (
-    <option key={`bookingForm-${idx}`} value={idx}>{`${idx + 1} Guest${
+    <option key={`bookingForm-${idx}`} value={idx + 1}>{`${idx + 1} Guest${
       idx !== 0 ? "s" : ""
     }`}</option>
   ));
@@ -23,6 +25,9 @@ const BookingForm = ({ price, reviewsNumber, reviewsRate, maxGuests }) => {
     setShowCalendar(!showCalendar);
   };
 
+  // Calculate the price depending on the number of guest
+  const newPrice = Math.floor(price + numberGuest * (price * 0.05));
+
   // Show the dates
   const calculateNumNights = date => {
     const checkInDate = date[0];
@@ -31,12 +36,11 @@ const BookingForm = ({ price, reviewsNumber, reviewsRate, maxGuests }) => {
     const DifferenceInTime = checkOutDate.getTime() - checkInDate.getTime();
 
     const DifferenceInDays = Math.floor(DifferenceInTime / (1000 * 3600 * 24));
-    return DifferenceInDays;
+    setNumberNight(DifferenceInDays);
   };
 
   const onChange = date => {
     calculateNumNights(date);
-
     const showCheckIn = `${
       date[0].getDate() < 10 ? "0" : ""
     }${date[0].getDate()}/${
@@ -52,13 +56,23 @@ const BookingForm = ({ price, reviewsNumber, reviewsRate, maxGuests }) => {
       checkInDate: showCheckIn,
       checkOutDate: showCheckOut
     }));
+    setShowCalendar(false);
+  };
+
+  const resetStates = () => {
+    setNumberNight(0);
+    setCheckInOutDate({ checkInDate: "", checkOutDate: "" });
+  };
+
+  const handleChangeGuest = e => {
+    setNumberGuest(e.target.value);
   };
 
   return (
     <div className="bookingForm">
       <div className="bookingForm_header">
         <div>
-          <span className="booking-topPrice">${price}</span> per night
+          <span className="booking-topPrice">${newPrice}</span> per night
         </div>
         <div className="bookingForm_reviews mt-1">
           <span className="mdi mdi-star" /> {reviewsRate}{" "}
@@ -80,16 +94,39 @@ const BookingForm = ({ price, reviewsNumber, reviewsRate, maxGuests }) => {
               : "Check on"}
           </div>
         </div>
+        <div
+          className="bookingForm_calendar_reset"
+          onClick={() => {
+            resetStates();
+          }}
+        >
+          Reset dates
+        </div>
         {showCalendar && (
           <div className="bookingForm_calendar_table">
-            <Calendar selectRange onChange={onChange} />
+            <Calendar selectRange onChange={onChange} minDate={new Date()} />
           </div>
         )}
       </div>
       <div className="bookingForm_guest">
         <h3 className="booking-subheading">Guest</h3>
-        <select className="select-input">{renderOptionGuestNb}</select>
+        <select className="select-input" onChange={handleChangeGuest}>
+          {renderOptionGuestNb}
+        </select>
+        <p className="bookingForm_guest_note">
+          An small additional fee will apply depending on the number of guests
+        </p>
       </div>
+      {numberNight !== 0 ? (
+        <div className="bookingForm_paymentDetails">
+          <BookingPriceDetails
+            price={newPrice}
+            numberNight={numberNight}
+            numberGuest={numberGuest}
+          />
+        </div>
+      ) : null}
+
       <LargeButton label="Book this place !" />
     </div>
   );

@@ -1,13 +1,14 @@
 @import "../../variables";
 
 .bookingForm {
+  margin-left: auto;
   width: 33rem;
-  height: 40rem;
   border: 1px solid $secondary-color;
   box-shadow: 1px 1px 5px $grey-light;
   padding: 2rem;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 
   &_header {
     width: 100%;
@@ -63,11 +64,29 @@
       top: 7rem;
       left: 0;
     }
+
+    &_reset {
+      padding: 0.5rem 0;
+      text-align: end;
+      margin-left: auto;
+      font-size: 1.3rem;
+      color: $primary-color;
+
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
   }
 
   &_guest {
     margin: 3rem 0;
     width: 100%;
+
+    &_note {
+      font-size: 1.2rem;
+      color: $grey-medium;
+    }
 
     .select-input {
       width: 100%;

@@ -23,7 +23,10 @@ const SinglePage = ({ product, match }) => {
     maxGuests,
     typeRoom,
     price,
-    coordinates
+    coordinates,
+    address,
+    postal,
+    city
   } = productInfo[0];
   //////////////////////
   return (
@@ -65,6 +68,13 @@ const SinglePage = ({ product, match }) => {
           </div>
           <div className="map-section mt-2">
             <h3>Location</h3>
+            <p className="mt-2" style={{ textTransform: "capitalize" }}>
+              <span
+                className="mdi mdi-home"
+                style={{ fontSize: "2rem" }}
+              ></span>{" "}
+              Address : {address}, {postal}, {city}
+            </p>
             <div className="map-section_map mt-3">
               <MapComponent
                 googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_APIKEY}`}
