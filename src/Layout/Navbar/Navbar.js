@@ -18,13 +18,10 @@ const Navbar = ({ currentUser }) => {
 
       <ul className="navbar_list">
         <li>
-          <NavButton label="Become a host" url="/" />
+          <NavButton label="Homes" url="/homes" />
         </li>
         {currentUser ? (
           <Fragment>
-            <li>
-              <NavButton label="Homes" url="/homes" />
-            </li>
             <li>
               <LogoutButton />
             </li>

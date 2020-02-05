@@ -6,13 +6,13 @@
   border-bottom: 3px solid transparent;
 
   &:hover {
-    border-bottom: 3px solid $grey-dark;
+    border-bottom: 3px solid $primary-color;
     cursor: pointer;
   }
 
   &_label {
-    color: $grey-dark;
+    color: $primary-color;
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 700;
   }
 }

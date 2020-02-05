@@ -1,8 +1,33 @@
 import React from "react";
 import "./Homepage.scss";
+import hero1 from "../../../img/hero1.jpg";
+import hero2 from "../../../img/hero2.jpg";
+import hero3 from "../../../img/hero3.jpg";
+import LargeButton from "../../../Components/Buttons/LargeButton/LargeButton";
+import { Link } from "react-router-dom";
 
 const Homepage = () => {
-  return <div></div>;
+  const backgroundImage = [hero1, hero2, hero3];
+  const randomImage = backgroundImage[Math.floor(Math.random() * 3)];
+
+  return (
+    <div className="homepage">
+      <div className="homepage_container">
+        <div className="homepage_image">
+          <img src={randomImage} alt="background" />
+        </div>
+        <div className="homepage_content">
+          <div className="homepage_content_text">
+            <h1>Welcome on Sleeping in Stockholm</h1>
+            <Link to="/homes">
+              {" "}
+              <LargeButton label="Explore our homes" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Homepage;

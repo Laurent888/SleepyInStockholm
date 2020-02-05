@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Hero from "../../../Components/HeroSinglePage/HeroSinglePage";
 import OptionSection from "../../../Components/OptionSections/OptionSection";
 import MapComponent from "../../../Components/Maps/Maps";
+import BookingForm from "../../../Components/BookingForm/BookingForm";
 
 const SinglePage = ({ product, match }) => {
   // Look for the single appartment using the ID
@@ -77,17 +78,12 @@ const SinglePage = ({ product, match }) => {
           </div>
         </div>
         <div className="container-right">
-          <div className="booking-order">
-            <div>
-              <h3>Number of nights</h3>
-              <input type="text" placeholder="Type here" />
-            </div>
-            <div>
-              <h3>Guest</h3>
-              <input type="text" />>
-            </div>
-            <button>Book </button>
-          </div>
+          <BookingForm
+            price={price}
+            reviewsNumber={reviewsNumber}
+            reviewsRate={reviewsRate}
+            maxGuests={maxGuests}
+          />
         </div>
       </div>
     </div>
