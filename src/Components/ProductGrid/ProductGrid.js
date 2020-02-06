@@ -4,7 +4,8 @@ import ProductCard from "../ProductCard/ProductCard";
 import { connect } from "react-redux";
 
 const ProductGrid = props => {
-  const renderProductCard = props.products.map(item => (
+  const productsToShow = props.products.filteredProducts;
+  const renderProductCard = productsToShow.map(item => (
     <ProductCard
       key={item.id}
       img={item.images[0]}
@@ -18,7 +19,7 @@ const ProductGrid = props => {
 };
 
 const mapStateToProps = state => ({
-  products: state.products.products
+  products: state.products
 });
 
 export default connect(mapStateToProps)(ProductGrid);

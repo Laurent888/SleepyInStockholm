@@ -2,9 +2,10 @@ import React from "react";
 import "./FilterButton.scss";
 
 const FilterButton = props => {
+  const { clicked, label } = props;
   return (
-    <button className="filter-btn">
-      <div className="filter-btn_label">{props.label}</div>
+    <button className="filter-btn" onClick={clicked}>
+      <div className="filter-btn_label">{label}</div>
     </button>
   );
 };

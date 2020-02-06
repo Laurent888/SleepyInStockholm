@@ -6,4 +6,8 @@
   display: flex;
 
   border-bottom: 1px solid $grey-light;
+
+  &-group {
+    position: relative;
+  }
 }
