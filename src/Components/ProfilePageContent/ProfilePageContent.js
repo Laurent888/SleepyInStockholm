@@ -6,23 +6,29 @@ import { connect } from "react-redux";
 const ProfilePageContent = props => {
   const { bookings, user } = props;
   const [userBooking, setUserBooking] = useState([]);
-  const [showLoading, setShowLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    extractUserBookings(bookings);
-    setShowLoading(false);
-  }, [bookings]);
+    console.log(userBooking);
 
-  const extractUserBookings = bookings => {
-    if (bookings.length === 0) {
-      return;
-    }
-    const userBookings = bookings.filter(item => item.userId === user.uid);
-    if (userBookings === 0) {
-      return;
-    }
-    setUserBooking(userBookings);
-  };
+    const extractUserBookings = bookings => {
+      if (bookings.length === 0) {
+        setUserBooking([]);
+        return;
+      }
+      const userBookings = bookings.filter(item => item.userId === user.uid);
+      if (userBookings === 0) {
+        console.log("No");
+        return;
+      }
+      console.log("render");
+      setUserBooking(userBookings);
+    };
+
+    /////////
+    extractUserBookings(bookings);
+    setLoading(false);
+  }, [bookings]);
 
   const renderBookings = userBooking => {
     if (userBooking.length === 0) {
@@ -41,19 +47,18 @@ const ProfilePageContent = props => {
       />
     ));
   };
-
   return (
     <div className="profile-page container">
       <h1 className="profile-page_title">Profile</h1>
       <h2 className="profile-page_subtitle">Your Booking</h2>
-      {showLoading ? <p>Loading...</p> : renderBookings(userBooking)}
+      {loading ? <p>Loading...</p> : renderBookings(userBooking)}
     </div>
   );
 };
 
 const mapStateToProps = state => ({
-  bookings: state.user.bookings,
-  user: state.user.currentUser
+  bookings: state.user.currentUser.bookings,
+  user: state.user.currentUser.userInfo
 });
 
 export default connect(mapStateToProps)(ProfilePageContent);

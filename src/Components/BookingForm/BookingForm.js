@@ -186,7 +186,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+  currentUser: state.user.currentUser.userInfo
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookingForm);

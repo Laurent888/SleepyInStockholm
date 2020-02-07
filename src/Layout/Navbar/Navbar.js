@@ -50,7 +50,7 @@ const Navbar = ({ currentUser }) => {
 };
 
 const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+  currentUser: state.user.currentUser.userInfo
 });
 
 export default connect(mapStateToProps)(Navbar);

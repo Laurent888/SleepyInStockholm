@@ -77,7 +77,7 @@ const App = ({ setCurrentUser, currentUser }) => {
 
 // Redux section
 const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+  currentUser: state.user.currentUser.userInfo
 });
 
 const mapDispatchToProps = dispatch => ({
