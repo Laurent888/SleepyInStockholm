@@ -17,11 +17,19 @@ const Navbar = ({ currentUser }) => {
       </div>
 
       <ul className="navbar_list">
+        {currentUser && (
+          <li className="nav-btn_label name">
+            Hello {currentUser.displayName} !
+          </li>
+        )}
         <li>
           <NavButton label="Homes" url="/homes" />
         </li>
         {currentUser ? (
           <Fragment>
+            <li>
+              <NavButton label="Profile" url="/profile" />
+            </li>
             <li>
               <LogoutButton />
             </li>

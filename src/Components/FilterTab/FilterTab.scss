@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .filter-tab {
   position: absolute;
   width: 20rem;
@@ -9,4 +11,10 @@
   top: 4rem;
   left: 1rem;
   box-shadow: 2px 2px 10px rgba(143, 143, 143, 0.459);
+
+  &_title {
+    font-size: 2rem;
+    color: $primary-color;
+    text-transform: capitalize;
+  }
 }

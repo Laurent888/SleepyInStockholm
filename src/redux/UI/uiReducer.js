@@ -10,12 +10,14 @@ const uiReducer = (state = INITIAL_STATE, action) => {
     case uiTypes.TOGGLE_MENU_TYPE_ROOM:
       return {
         ...state,
-        menuTypeRoomOpen: !state.menuTypeRoomOpen
+        menuTypeRoomOpen: !state.menuTypeRoomOpen,
+        menuPriceRoomOpen: false
       };
     case uiTypes.TOGGLE_MENU_PRICE_ROOM:
       return {
         ...state,
-        menuPriceRoomOpen: !state.menuPriceRoomOpen
+        menuPriceRoomOpen: !state.menuPriceRoomOpen,
+        menuTypeRoomOpen: false
       };
     default:
       return state;

@@ -12,6 +12,7 @@ const SinglePage = ({ product, match }) => {
     item => item.id === parseInt(match.params.id)
   );
   const {
+    id,
     images,
     title,
     owner,
@@ -93,6 +94,9 @@ const SinglePage = ({ product, match }) => {
             reviewsNumber={reviewsNumber}
             reviewsRate={reviewsRate}
             maxGuests={maxGuests}
+            images={images}
+            title={title}
+            id={id}
           />
         </div>
       </div>

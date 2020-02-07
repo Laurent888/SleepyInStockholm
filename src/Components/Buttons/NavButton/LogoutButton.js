@@ -10,12 +10,9 @@ const LogoutButton = props => {
   };
   return (
     <div className="nav-btn" onClick={handleLogout}>
-      {props.icon ? (
-        <div className="nav-btn_icon">
-          <i className={props.icon}></i>
-        </div>
-      ) : null}
-      <div className="nav-btn_label">Log Out</div>
+      <div className="nav-btn_label">
+        Log Out <span className="mdi mdi-logout"></span>
+      </div>
     </div>
   );
 };

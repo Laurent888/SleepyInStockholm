@@ -5,6 +5,11 @@ export const setFilterTypeRoom = item => ({
   payload: item
 });
 
-export const resetFilterTypeRoom = () => ({
-  type: productTypes.RESET_FILTER_TYPE_ROOM
+export const setFilterPriceRoom = item => ({
+  type: productTypes.SET_FILTER_PRICE_ROOM,
+  payload: item
 });
+
+export const resetFilterTypeRoom = {
+  type: productTypes.RESET_FILTER_TYPE_ROOM
+};

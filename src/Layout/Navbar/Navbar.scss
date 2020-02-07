@@ -20,5 +20,18 @@
   &_list {
     display: flex;
     align-items: center;
+    margin-right: 5rem;
+  }
+
+  .name {
+    color: $secondary-color;
+    padding-right: 3rem;
+    border-right: 1px solid $grey-medium;
+    padding-bottom: 0.4rem;
+    font-size: 2rem;
+
+    &:hover {
+      cursor: default;
+    }
   }
 }

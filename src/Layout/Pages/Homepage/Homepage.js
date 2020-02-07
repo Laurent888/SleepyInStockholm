@@ -18,7 +18,7 @@ const Homepage = () => {
         </div>
         <div className="homepage_content">
           <div className="homepage_content_text">
-            <h1>Welcome on Sleeping in Stockholm</h1>
+            <h1>Welcome to Sleeping in Stockholm</h1>
             <Link to="/homes">
               {" "}
               <LargeButton label="Explore our homes" />

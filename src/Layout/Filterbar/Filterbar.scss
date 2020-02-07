@@ -4,10 +4,42 @@
   width: 100%;
   padding: 1rem 5rem;
   display: flex;
-
+  align-items: center;
   border-bottom: 1px solid $grey-light;
 
   &-group {
     position: relative;
+  }
+}
+
+.reset-filter {
+  color: $grey-dark;
+  font-size: 1.4rem;
+  margin-left: 2rem;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.filters-choice {
+  margin-left: 3rem;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &_item {
+    padding: 1rem 1rem;
+    margin-right: 2rem;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: $grey-dark;
+    background-color: rgba(245, 154, 80, 0.26);
+    border-radius: 3rem;
+    span {
+      font-weight: 400;
+    }
   }
 }

@@ -3,6 +3,7 @@ import "./FormFilterCheckbox.scss";
 import { connect } from "react-redux";
 import { setFilterTypeRoom } from "../../../redux/product/productAction";
 import { toggleMenuTypeRoom } from "../../../redux/UI/uiActions";
+import FilterTabBtn from "../../Buttons/FilterTabBtn/FilterTabBtn";
 
 const FormFilterCheckbox = props => {
   const { setFilterTypeRoom, toggleMenuTypeRoom } = props;
@@ -22,7 +23,6 @@ const FormFilterCheckbox = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(filterTypeRoomState);
     setFilterTypeRoom(filterTypeRoomState);
     toggleMenuTypeRoom();
   };
@@ -67,10 +67,7 @@ const FormFilterCheckbox = props => {
           Three rooms
         </label>
       </div>
-
-      <button className="form-checkbox_button" type="submit">
-        Save
-      </button>
+      <FilterTabBtn type="submit" label="Save" />
     </form>
   );
 };

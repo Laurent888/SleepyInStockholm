@@ -9,3 +9,29 @@ export const filterRoomsType = (allRooms, filters) => {
 
   return filteredRooms;
 };
+
+export const filterRoomTypeSelected = filter => {
+  console.log(filter);
+  const filteredTypeRoom = Object.keys(filter).filter(item => {
+    return filter[item] === true;
+  });
+  const tempFilteredTypeRoom = filteredTypeRoom.map(item => {
+    if (item === "twoRooms") {
+      return "Two Rooms";
+    } else if (item === "threeRooms") {
+      return "Three Rooms";
+    } else {
+      return "Studio";
+    }
+  });
+
+  return tempFilteredTypeRoom;
+};
+
+export const filterRoomsPrice = (allRooms, maxPrice) => {
+  const filteredRoom = allRooms.filter(item => {
+    return item.price <= maxPrice;
+  });
+
+  return filteredRoom;
+};

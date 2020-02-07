@@ -1,0 +1,100 @@
+@import "../../../variables";
+
+.ProfileBookingSection {
+  margin: 2rem 0;
+  height: 25rem;
+  width: 100%;
+  border: 1px solid $grey-light;
+  display: flex;
+
+  &_details {
+    display: flex;
+    flex-direction: row;
+
+    &-title {
+      padding: 0 2rem;
+      width: 30rem;
+
+      &-link {
+        padding-top: 1rem;
+        font-size: 1.4rem;
+        a {
+          color: $primary-color;
+        }
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &_list {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &_left {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 50%;
+
+    &-img {
+      width: 20rem;
+      height: 15rem;
+      overflow: hidden;
+
+      img {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &_dates {
+    margin: 1rem 0;
+    color: $grey-dark;
+    font-weight: 300;
+  }
+
+  &_right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-left: 1px solid $grey-light;
+
+    &_price {
+      margin: 1rem 0;
+    }
+
+    h4 {
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: $primary-color;
+    }
+
+    p {
+      font-size: 1.4rem;
+    }
+  }
+
+  .cancel-btn {
+    width: 15rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    background-color: $primary-color;
+    transition: all 0.1s ease-in-out;
+    border-radius: 0.5rem;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.9;
+    }
+  }
+}

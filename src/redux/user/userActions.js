@@ -4,3 +4,13 @@ export const setCurrentUser = user => ({
   type: userTypes.SET_CURRENT_USER,
   payload: user
 });
+
+export const addBooking = booking => ({
+  type: userTypes.ADD_BOOKING,
+  payload: booking
+});
+
+export const removeBooking = bookingId => ({
+  type: userTypes.REMOVE_BOOKING,
+  payload: bookingId
+});

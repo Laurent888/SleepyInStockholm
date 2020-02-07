@@ -1,0 +1,24 @@
+@import "../../variables";
+
+.profile-page {
+  &.container {
+    max-width: 110rem;
+    margin: 0 auto;
+    padding: 3rem 0;
+  }
+
+  &_title {
+    margin: 3rem 0;
+  }
+
+  &_subtitle {
+    margin: 2rem 0;
+  }
+
+  .no-booking {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: $secondary-color;
+    margin-left: 2rem;
+  }
+}

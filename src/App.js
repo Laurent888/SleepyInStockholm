@@ -6,6 +6,7 @@ import AllProductPage from "./Layout/Pages/AllProductsPage/AllProductPage";
 import SinglePage from "./Layout/Pages/SinglePage/SinglePage";
 import SignupPage from "./Layout/Pages/SignupPage/SignupPage";
 import SigninPage from "./Layout/Pages/SigninPage/SigninPage";
+import ProfilePage from "./Layout/Pages/ProfilePage/ProfilePage";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { auth, db } from "./firebase/firebase";
 import { setCurrentUser } from "./redux/user/userActions";
@@ -68,6 +69,7 @@ const App = ({ setCurrentUser, currentUser }) => {
           path="/signin"
           render={() => (currentUser ? <Redirect to="/" /> : <SigninPage />)}
         />
+        <Route exact path="/profile" component={ProfilePage} />
       </Switch>
     </div>
   );

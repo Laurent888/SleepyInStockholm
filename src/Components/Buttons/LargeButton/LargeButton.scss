@@ -13,6 +13,15 @@
   text-transform: capitalize;
   text-align: center;
 
+  &:disabled {
+    background-color: $grey-medium;
+
+    &:hover {
+      background-color: $grey-medium;
+      cursor: default;
+    }
+  }
+
   &:hover {
     background-color: $primary-color-dark;
     cursor: pointer;
