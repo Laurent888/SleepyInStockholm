@@ -1,9 +1,12 @@
 import React from "react";
 import "./NavButton.scss";
 import { auth } from "../../../firebase/firebase";
+import { resetBooking } from "../../../redux/user/userActions";
+import { connect } from "react-redux";
 
-const LogoutButton = props => {
+const LogoutButton = ({ resetBooking }) => {
   const handleLogout = () => {
+    resetBooking();
     auth.signOut().then(() => {
       console.log("Signed out successful");
     });
@@ -17,4 +20,8 @@ const LogoutButton = props => {
   );
 };
 
-export default LogoutButton;
+const mapDispatchToProps = dispatch => ({
+  resetBooking: () => dispatch(resetBooking)
+});
+
+export default connect(null, mapDispatchToProps)(LogoutButton);

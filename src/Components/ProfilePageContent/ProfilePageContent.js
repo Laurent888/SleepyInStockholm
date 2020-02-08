@@ -9,8 +9,6 @@ const ProfilePageContent = props => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log(userBooking);
-
     const extractUserBookings = bookings => {
       if (bookings.length === 0) {
         setUserBooking([]);
@@ -18,10 +16,8 @@ const ProfilePageContent = props => {
       }
       const userBookings = bookings.filter(item => item.userId === user.uid);
       if (userBookings === 0) {
-        console.log("No");
         return;
       }
-      console.log("render");
       setUserBooking(userBookings);
     };
 
@@ -44,6 +40,7 @@ const ProfilePageContent = props => {
         roomId={item.roomId}
         nbNights={item.numberOfNights}
         bookingId={item.bookingId}
+        userId={item.userId}
       />
     ));
   };

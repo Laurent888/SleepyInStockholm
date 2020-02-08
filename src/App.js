@@ -11,8 +11,9 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { auth, db } from "./firebase/firebase";
 import { setCurrentUser } from "./redux/user/userActions";
 import { connect } from "react-redux";
+import { addBooking } from "./redux/user/userActions";
 
-const App = ({ setCurrentUser, currentUser }) => {
+const App = ({ setCurrentUser, currentUser, addBooking }) => {
   // Create the user in Firestore
   const createUserDocument = user => {
     const { uid, email, displayName } = user;
@@ -41,10 +42,29 @@ const App = ({ setCurrentUser, currentUser }) => {
       });
   };
 
+  const fetchAllUserBooking = user => {
+    db.collection("users")
+      .doc(user.uid)
+      .collection("bookings")
+      .get()
+      .then(res => {
+        if (!res.empty) {
+          res.docs.map(doc => {
+            const booking = doc.data();
+            addBooking(booking);
+            console.log(booking);
+          });
+        }
+      });
+  };
+
   useEffect(() => {
     auth.onAuthStateChanged(user => {
+      console.log(user);
+
       if (user) {
         setCurrentUser(user);
+        fetchAllUserBooking(user);
         createUserDocument(user);
       } else {
         setCurrentUser(user);
@@ -69,7 +89,11 @@ const App = ({ setCurrentUser, currentUser }) => {
           path="/signin"
           render={() => (currentUser ? <Redirect to="/" /> : <SigninPage />)}
         />
-        <Route exact path="/profile" component={ProfilePage} />
+        <Route
+          exact
+          path="/profile"
+          render={() => (currentUser ? <ProfilePage /> : <Redirect to="/" />)}
+        />
       </Switch>
     </div>
   );
@@ -81,7 +105,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  setCurrentUser: user => dispatch(setCurrentUser(user)),
+  addBooking: item => dispatch(addBooking(item))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

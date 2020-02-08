@@ -3,6 +3,7 @@ import "./ProfileBookingSection.scss";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { removeBooking } from "../../../redux/user/userActions";
+import { db } from "../../../firebase/firebase";
 
 const ProfileBookingSection = props => {
   const {
@@ -14,7 +15,8 @@ const ProfileBookingSection = props => {
     products,
     nbNights,
     bookingId,
-    removeBooking
+    removeBooking,
+    userId
   } = props;
 
   // Local state section
@@ -82,7 +84,16 @@ const ProfileBookingSection = props => {
         <button
           className="cancel-btn mt-2"
           onClick={() => {
-            removeBooking(bookingId);
+            db.collection("users")
+              .doc(userId)
+              .collection("bookings")
+              .doc(bookingId)
+              .delete()
+              .then(() => {
+                console.log("Booking deleted from firestore");
+                removeBooking(bookingId);
+              })
+              .catch(err => console.log(err));
           }}
         >
           Cancel Booking

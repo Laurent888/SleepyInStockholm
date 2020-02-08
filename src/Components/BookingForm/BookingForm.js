@@ -98,8 +98,14 @@ const BookingForm = ({
     if (!currentUser) {
       return console.log("please login in order to book");
     }
+
+    // Create a random bookingID
+    let randomId = `${
+      currentUser.uid
+    }${id}${numberGuest}${numberNight}${Math.floor(Math.random() * 100)}`;
+
     const bookingDetails = {
-      bookingId: `${currentUser.uid}${id}${numberGuest}${numberNight}`,
+      bookingId: randomId,
       roomId: id,
       userId: currentUser.uid,
       title,

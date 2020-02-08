@@ -7,6 +7,7 @@ import {
   addBooking,
   cancelValidateBooking
 } from "../../redux/user/userActions";
+import { db } from "../../firebase/firebase";
 
 const ValidationModal = ({
   validationBooking,
@@ -14,12 +15,12 @@ const ValidationModal = ({
   cancelValidateBooking
 }) => {
   const {
-    title,
-    images,
     guestNumber,
     priceToPay,
     numberOfNights,
-    datesSelected
+    datesSelected,
+    userId,
+    bookingId
   } = validationBooking;
 
   let history = useHistory();
@@ -47,10 +48,21 @@ const ValidationModal = ({
         <LargeButton
           label="Confirm booking"
           clicked={() => {
-            setTimeout(() => {
-              addBooking(validationBooking);
-              history.push("/profile");
-            }, 500);
+            db.collection("users")
+              .doc(userId)
+              .collection("bookings")
+              .doc(bookingId)
+              .set(validationBooking)
+              .then(() => {
+                console.log("Added successully on Firestore");
+                setTimeout(() => {
+                  addBooking(validationBooking);
+                  history.push("/profile");
+                }, 500);
+              })
+              .catch(err => {
+                console.log(err);
+              });
           }}
         />
         <button

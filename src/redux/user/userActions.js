@@ -23,3 +23,7 @@ export const removeBooking = bookingId => ({
   type: userTypes.REMOVE_BOOKING,
   payload: bookingId
 });
+
+export const resetBooking = {
+  type: userTypes.RESET_BOOKING
+};

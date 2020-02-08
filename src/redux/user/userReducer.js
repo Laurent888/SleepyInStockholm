@@ -52,6 +52,8 @@ const userReducer = (state = INITIAL_STATE, action) => {
           ]
         }
       };
+    case userTypes.RESET_BOOKING:
+      return { ...INITIAL_STATE };
     default:
       return state;
   }
