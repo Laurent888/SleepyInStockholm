@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./BookingForm.scss";
 import Calendar from "react-calendar";
 import LargeButton from "../Buttons/LargeButton/LargeButton";
 import BookingPriceDetails from "./BookingPriceDetails/BookingPriceDetails";
 import { connect } from "react-redux";
-import { addBooking } from "../../redux/user/userActions";
+import { validateBooking } from "../../redux/user/userActions";
 
 const BookingForm = ({
   price,
@@ -14,8 +14,9 @@ const BookingForm = ({
   reviewsRate,
   maxGuests,
   currentUser,
-  addBooking,
-  id
+  id,
+  validateBooking,
+  resetBookingDetails
 }) => {
   // Local states section
   const [showCalendar, setShowCalendar] = useState(false);
@@ -25,6 +26,13 @@ const BookingForm = ({
     checkOutDate: ""
   });
   const [numberGuest, setNumberGuest] = useState(0);
+
+  useEffect(() => {
+    console.log("reset dates !");
+    if (resetBookingDetails) {
+      setCheckInOutDate({ checkInDate: "", checkOutDate: "" });
+    }
+  }, [resetBookingDetails]);
 
   // Render the options for the number of guests
   const renderOptionGuestNb = [...new Array(maxGuests)].map((item, idx) => (
@@ -101,8 +109,8 @@ const BookingForm = ({
       numberOfNights: numberNight,
       datesSelected: checkInOutDate
     };
-
-    addBooking(bookingDetails);
+    console.log(bookingDetails);
+    validateBooking(bookingDetails);
   };
 
   return (
@@ -130,7 +138,7 @@ const BookingForm = ({
           <div className="bookingForm_calendar_input_dates">
             {checkInOutDate.checkOutDate !== ""
               ? checkInOutDate.checkOutDate
-              : "Check on"}
+              : "Check out"}
           </div>
         </div>
         <div
@@ -182,11 +190,12 @@ const BookingForm = ({
 };
 
 const mapDispatchToProps = dispatch => ({
-  addBooking: booking => dispatch(addBooking(booking))
+  validateBooking: item => dispatch(validateBooking(item))
 });
 
 const mapStateToProps = state => ({
-  currentUser: state.user.currentUser.userInfo
+  currentUser: state.user.currentUser.userInfo,
+  resetBookingDetails: state.user.currentUser.resetBookingDetails
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookingForm);

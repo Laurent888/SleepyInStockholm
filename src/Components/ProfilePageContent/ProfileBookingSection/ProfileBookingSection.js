@@ -3,7 +3,6 @@ import "./ProfileBookingSection.scss";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { removeBooking } from "../../../redux/user/userActions";
-import { setLoading } from "../../../redux/UI/uiActions";
 
 const ProfileBookingSection = props => {
   const {
@@ -15,8 +14,7 @@ const ProfileBookingSection = props => {
     products,
     nbNights,
     bookingId,
-    removeBooking,
-    setLoading2
+    removeBooking
   } = props;
 
   // Local state section
@@ -84,7 +82,6 @@ const ProfileBookingSection = props => {
         <button
           className="cancel-btn mt-2"
           onClick={() => {
-            setLoading2();
             removeBooking(bookingId);
           }}
         >
@@ -100,8 +97,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  removeBooking: id => dispatch(removeBooking(id)),
-  setLoading2: () => dispatch(setLoading)
+  removeBooking: id => dispatch(removeBooking(id))
 });
 
 export default connect(

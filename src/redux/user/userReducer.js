@@ -4,7 +4,9 @@ import { removeBookingUtil } from "./userUtils";
 const INITIAL_STATE = {
   currentUser: {
     userInfo: null,
-    bookings: []
+    bookings: [],
+    bookingValidation: {},
+    resetBookingDetails: false
   }
 };
 
@@ -17,11 +19,28 @@ const userReducer = (state = INITIAL_STATE, action) => {
           userInfo: action.payload
         }
       };
+    case userTypes.VALIDATE_BOOKING:
+      return {
+        currentUser: {
+          ...state.currentUser,
+          bookingValidation: action.payload,
+          resetBookingDetails: false
+        }
+      };
+    case userTypes.CANCEL_VALIDATE_BOOKING:
+      return {
+        currentUser: {
+          ...state.currentUser,
+          bookingValidation: {}
+        }
+      };
     case userTypes.ADD_BOOKING:
       return {
         currentUser: {
           ...state.currentUser,
-          bookings: [...state.currentUser.bookings, action.payload]
+          bookings: [...state.currentUser.bookings, action.payload],
+          bookingValidation: {},
+          resetBookingDetails: true
         }
       };
     case userTypes.REMOVE_BOOKING:

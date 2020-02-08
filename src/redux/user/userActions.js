@@ -5,6 +5,15 @@ export const setCurrentUser = user => ({
   payload: user
 });
 
+export const validateBooking = item => ({
+  type: userTypes.VALIDATE_BOOKING,
+  payload: item
+});
+
+export const cancelValidateBooking = {
+  type: userTypes.CANCEL_VALIDATE_BOOKING
+};
+
 export const addBooking = booking => ({
   type: userTypes.ADD_BOOKING,
   payload: booking

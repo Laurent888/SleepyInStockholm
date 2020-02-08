@@ -1,0 +1,71 @@
+@import "../../variables";
+
+.validation-modal {
+  padding: 2rem;
+  width: 35rem;
+  height: 34rem;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(253, 253, 253);
+
+  border-radius: 1rem;
+  border: 1px solid $grey-light;
+  box-shadow: 2px 2px 6px rgba(133, 133, 133, 0.527);
+  z-index: 200;
+
+  &_title {
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 3rem;
+    color: $secondary-color;
+  }
+
+  &_info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &_list {
+    display: flex;
+    flex-direction: column;
+
+    &_item {
+      padding: 1rem 0;
+    }
+  }
+  &_values {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    &_item {
+      padding: 1rem 0;
+      font-weight: 700;
+    }
+  }
+
+  &_btn {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-notyet {
+      margin-top: 1rem;
+      padding: 0.5rem;
+      background-color: transparent;
+      border: none;
+      color: $primary-color;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+}

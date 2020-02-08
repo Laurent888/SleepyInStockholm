@@ -5,8 +5,9 @@ import Hero from "../../../Components/HeroSinglePage/HeroSinglePage";
 import OptionSection from "../../../Components/OptionSections/OptionSection";
 import MapComponent from "../../../Components/Maps/Maps";
 import BookingForm from "../../../Components/BookingForm/BookingForm";
+import ValidationModal from "../../../Components/ValidationModal/ValidationModal";
 
-const SinglePage = ({ product, match }) => {
+const SinglePage = ({ product, match, validationBooking }) => {
   // Look for the single appartment using the ID
   let productInfo = product.filter(
     item => item.id === parseInt(match.params.id)
@@ -99,13 +100,17 @@ const SinglePage = ({ product, match }) => {
             id={id}
           />
         </div>
+        {validationBooking.title ? (
+          <ValidationModal validationBooking={validationBooking} />
+        ) : null}
       </div>
     </div>
   );
 };
 
 const mapStateToProps = state => ({
-  product: state.products.products
+  product: state.products.products,
+  validationBooking: state.user.currentUser.bookingValidation
 });
 
 export default connect(mapStateToProps)(SinglePage);
