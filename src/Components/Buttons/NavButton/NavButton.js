@@ -1,10 +1,12 @@
 import React from "react";
 import "./NavButton.scss";
 import { Link } from "react-router-dom";
+import { toggleMainMenu } from "../../../redux/UI/uiActions";
+import { connect } from "react-redux";
 
 const NavButton = props => {
   return (
-    <Link to={props.url}>
+    <Link to={props.url} onClick={props.toggleMainMenu}>
       <div className="nav-btn">
         {props.icon ? (
           <div className="nav-btn_icon">
@@ -17,4 +19,8 @@ const NavButton = props => {
   );
 };
 
-export default NavButton;
+const mapDispatchToProps = dispatch => ({
+  toggleMainMenu: () => dispatch(toggleMainMenu)
+});
+
+export default connect(null, mapDispatchToProps)(NavButton);

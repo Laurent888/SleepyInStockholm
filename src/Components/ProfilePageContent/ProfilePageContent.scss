@@ -21,4 +21,21 @@
     color: $secondary-color;
     margin-left: 2rem;
   }
+
+  @media screen and (max-width: $mobile-width-small) {
+    &.container {
+      padding-top: 0;
+    }
+
+    &_title {
+      font-size: 3rem;
+      color: $primary-color;
+      text-align: center;
+    }
+
+    &_subtitle {
+      padding-left: 1rem;
+      font-weight: 300;
+    }
+  }
 }

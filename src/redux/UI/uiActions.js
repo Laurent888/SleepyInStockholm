@@ -6,3 +6,6 @@ export const toggleMenuTypeRoom = {
 export const toggleMenuPriceRoom = {
   type: uiTypes.TOGGLE_MENU_PRICE_ROOM
 };
+export const toggleMainMenu = {
+  type: uiTypes.TOGGLE_MAIN_MENU
+};

@@ -101,4 +101,36 @@
     margin-bottom: 6rem;
     border-bottom: 1px solid $grey-light;
   }
+
+  @media screen and (max-width: $mobile-width-medium) {
+    .container {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      &-left {
+        width: 100;
+        padding: 0 1rem;
+      }
+
+      &-right {
+        width: 100%;
+      }
+    }
+  }
+
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+
+    h1 {
+      font-size: 2rem;
+      flex-basis: 1;
+    }
+    .owner {
+      padding-left: 5rem;
+      flex-basis: 0.6;
+    }
+  }
 }

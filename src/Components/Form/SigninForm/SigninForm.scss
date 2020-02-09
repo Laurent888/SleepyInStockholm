@@ -28,4 +28,12 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  @media screen and (max-width: $mobile-width-medium) {
+    width: 90%;
+
+    .l-heading {
+      font-size: 3rem;
+    }
+  }
 }

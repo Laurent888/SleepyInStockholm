@@ -52,7 +52,6 @@ const App = ({ setCurrentUser, currentUser, addBooking }) => {
           res.docs.map(doc => {
             const booking = doc.data();
             addBooking(booking);
-            console.log(booking);
           });
         }
       });
@@ -60,8 +59,6 @@ const App = ({ setCurrentUser, currentUser, addBooking }) => {
 
   useEffect(() => {
     auth.onAuthStateChanged(user => {
-      console.log(user);
-
       if (user) {
         setCurrentUser(user);
         fetchAllUserBooking(user);
@@ -91,7 +88,7 @@ const App = ({ setCurrentUser, currentUser, addBooking }) => {
         />
         <Route
           exact
-          path="/profile"
+          path="/profile/:id"
           render={() => (currentUser ? <ProfilePage /> : <Redirect to="/" />)}
         />
       </Switch>

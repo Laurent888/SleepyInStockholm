@@ -18,7 +18,6 @@ const SignupForm = () => {
     const username = signup.username;
     const email = signup.email;
     const password = signup.password;
-    console.log(email, password);
     if (signup.password === signup.password2) {
       auth
         .createUserWithEmailAndPassword(email, password)

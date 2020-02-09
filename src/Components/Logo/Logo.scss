@@ -1,5 +1,33 @@
+@import "../../variables";
+
 .logo {
   width: 80px;
   height: 80px;
   padding: 1.6rem;
+  flex-direction: row;
+  align-items: center;
+
+  &.small-width {
+    display: none;
+    .mdi-chevron-down {
+      font-size: 3rem;
+      margin-left: 0.5rem;
+    }
+  }
+
+  @media screen and (max-width: $mobile-width-small) {
+    &.large-width {
+      display: none;
+    }
+    &.small-width {
+      display: flex;
+
+      .mdi-chevron-down {
+        transition: all 0.2s linear;
+        &.up {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
 }

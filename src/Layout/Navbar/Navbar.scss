@@ -13,14 +13,23 @@
   padding: 0 1rem;
   border-bottom: 1px solid $grey-light;
 
+  .icon-menu {
+    display: none;
+  }
+
   &_left {
     display: flex;
     align-items: center;
+    z-index: 100;
   }
   &_list {
     display: flex;
     align-items: center;
     margin-right: 5rem;
+
+    .link-homepage {
+      display: none;
+    }
   }
 
   .name {
@@ -32,6 +41,55 @@
 
     &:hover {
       cursor: default;
+    }
+  }
+
+  @media screen and (max-width: $mobile-width-small) {
+    background-color: rgb(250, 250, 250);
+    &_list {
+      visibility: hidden;
+      transition: visibility 0s, opacity 0.2s, transform 0.3s ease-in-out;
+      opacity: 0;
+      transform: translateY(-5rem);
+
+      &.show {
+        z-index: 99;
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .icon-menu {
+      display: block;
+      font-size: 3rem;
+      color: $grey-medium;
+    }
+
+    &_list {
+      position: absolute;
+      top: 8rem;
+      left: 0;
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      height: 100vh;
+      background-color: rgb(250, 250, 250);
+
+      .link-homepage {
+        display: flex;
+      }
+
+      li {
+        width: 20rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .name {
+      padding-left: 2rem;
     }
   }
 }

@@ -2,7 +2,8 @@ import { uiTypes } from "./uiTypes";
 
 const INITIAL_STATE = {
   menuTypeRoomOpen: false,
-  menuPriceRoomOpen: false
+  menuPriceRoomOpen: false,
+  mainMenuOpen: false
 };
 
 const uiReducer = (state = INITIAL_STATE, action) => {
@@ -18,6 +19,11 @@ const uiReducer = (state = INITIAL_STATE, action) => {
         ...state,
         menuPriceRoomOpen: !state.menuPriceRoomOpen,
         menuTypeRoomOpen: false
+      };
+    case uiTypes.TOGGLE_MAIN_MENU:
+      return {
+        ...state,
+        mainMenuOpen: !state.mainMenuOpen
       };
     default:
       return state;

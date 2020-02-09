@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .heroSingle {
   margin: 2rem 0;
   width: 100%;
@@ -49,5 +51,23 @@
     object-fit: cover;
     object-position: center;
     transition: all 0.3s ease-in-out;
+  }
+
+  @media screen and (max-width: $mobile-width-medium) {
+    height: auto;
+
+    &_grid {
+      display: block;
+      .image-2 {
+        display: none;
+      }
+      .image-3 {
+        display: none;
+      }
+
+      div {
+        border: none;
+      }
+    }
   }
 }

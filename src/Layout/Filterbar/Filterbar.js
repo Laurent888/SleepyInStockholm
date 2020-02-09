@@ -29,23 +29,25 @@ const Filterbar = props => {
 
   return (
     <div className="filterbar">
-      <div className="filterbar-group">
-        <FilterButton label="Type" clicked={toggleMenuTypeRoom} />
-        {menuTypeRoomOpen && (
-          <FilterTab label="type of room" filterType="typeRoom" />
-        )}
-      </div>
-      <div className="filterbar-group">
-        <FilterButton label="Price" clicked={toggleMenuPriceRoom} />
-        {menuPriceRoomOpen && <FilterTab label="price" />}
-      </div>
-      <div className="reset-filter" onClick={resetFilterTypeRoom}>
-        Reset filter
+      <div className="filterbar-buttons">
+        <div className="filterbar-group">
+          <FilterButton label="Type" clicked={toggleMenuTypeRoom} />
+          {menuTypeRoomOpen && (
+            <FilterTab label="type of room" filterType="typeRoom" />
+          )}
+        </div>
+        <div className="filterbar-group">
+          <FilterButton label="Price" clicked={toggleMenuPriceRoom} />
+          {menuPriceRoomOpen && <FilterTab label="price" />}
+        </div>
+        <div className="reset-filter" onClick={resetFilterTypeRoom}>
+          Reset filter
+        </div>
       </div>
 
       {/* Show the filters choice */}
 
-      <div className="filters-choice">
+      <div className="filters-choice mt-1">
         <div className="filters-choice_item">
           Room type: {renderedFilterTypeRoom(typeRoomSelected)}{" "}
         </div>
