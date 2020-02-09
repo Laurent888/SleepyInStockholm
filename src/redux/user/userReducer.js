@@ -1,5 +1,5 @@
 import { userTypes } from "./userTypes";
-import { removeBookingUtil } from "./userUtils";
+// import { removeBookingUtil } from "./userUtils";
 
 const INITIAL_STATE = {
   currentUser: {
@@ -43,13 +43,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
           resetBookingDetails: true
         }
       };
-    case userTypes.REMOVE_BOOKING:
+    case userTypes.REMOVE_BOOKING_ASYNC:
       return {
         currentUser: {
           ...state.currentUser,
-          bookings: [
-            ...removeBookingUtil(state.currentUser.bookings, action.payload)
-          ]
+          bookings: [...action.payload]
         }
       };
     case userTypes.RESET_BOOKING:

@@ -19,9 +19,9 @@ export const addBooking = booking => ({
   payload: booking
 });
 
-export const removeBooking = bookingId => ({
+export const removeBooking = removeData => ({
   type: userTypes.REMOVE_BOOKING,
-  payload: bookingId
+  payload: removeData
 });
 
 export const resetBooking = {

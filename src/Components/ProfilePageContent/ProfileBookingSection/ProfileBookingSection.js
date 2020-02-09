@@ -84,16 +84,18 @@ const ProfileBookingSection = props => {
         <button
           className="cancel-btn mt-2"
           onClick={() => {
-            db.collection("users")
-              .doc(userId)
-              .collection("bookings")
-              .doc(bookingId)
-              .delete()
-              .then(() => {
-                console.log("Booking deleted from firestore");
-                removeBooking(bookingId);
-              })
-              .catch(err => console.log(err));
+            //   db.collection("users")
+            //     .doc(userId)
+            //     .collection("bookings")
+            //     .doc(bookingId)
+            //     .delete()
+            //     .then(() => {
+            //       console.log("Booking deleted from firestore");
+            //       removeBooking(bookingId);
+            //     })
+            //     .catch(err => console.log(err));
+            const removeData = [bookingId, userId];
+            removeBooking(removeData);
           }}
         >
           Cancel Booking
@@ -108,7 +110,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  removeBooking: id => dispatch(removeBooking(id))
+  removeBooking: removeData => dispatch(removeBooking(removeData))
 });
 
 export default connect(

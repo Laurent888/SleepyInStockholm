@@ -1,30 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./ProfilePageContent.scss";
 import ProfileBookingSection from "./ProfileBookingSection/ProfileBookingSection";
 import { connect } from "react-redux";
 
 const ProfilePageContent = props => {
-  const { bookings, user } = props;
-  const [userBooking, setUserBooking] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const extractUserBookings = bookings => {
-      if (bookings.length === 0) {
-        setUserBooking([]);
-        return;
-      }
-      const userBookings = bookings.filter(item => item.userId === user.uid);
-      if (userBookings === 0) {
-        return;
-      }
-      setUserBooking(userBookings);
-    };
-
-    /////////
-    extractUserBookings(bookings);
-    setLoading(false);
-  }, [bookings]);
+  const { bookings } = props;
 
   const renderBookings = userBooking => {
     if (userBooking.length === 0) {
@@ -48,7 +28,7 @@ const ProfilePageContent = props => {
     <div className="profile-page container">
       <h1 className="profile-page_title">Profile</h1>
       <h2 className="profile-page_subtitle">Your Booking</h2>
-      {loading ? <p>Loading...</p> : renderBookings(userBooking)}
+      {renderBookings(bookings)}
     </div>
   );
 };
