@@ -12,11 +12,11 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const config = {
-  apiKey: key1,
-  authDomain: projectID + ".firebaseapp.com",
-  databaseURL: "https://" + projectID + ".firebaseio.com",
-  projectId: projectID,
-  storageBucket: projectID + ".appspot.com",
+  apiKey: "AIzaSyDFGm-mttzW6Xt2SH6RVTxD17a5PgSppjg",
+  authDomain: "sleepinstockholm-48f6c.firebaseapp.com",
+  databaseURL: "https://sleepinstockholm-48f6c.firebaseio.com",
+  projectId: "sleepinstockholm-48f6c",
+  storageBucket: "sleepinstockholm-48f6c.appspot.com",
   messagingSenderId: "302960952347",
   appId: "1:302960952347:web:d020adc85760473f0724be"
 };
