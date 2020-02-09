@@ -2,21 +2,21 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 
-let key1, projectID;
+let APIKEY, PROJECTID;
 if (process.env.NODE_ENV !== "production") {
-  key1 = process.env.REACT_APP_apiKEY;
-  projectID = process.env.REACT_APP_projectID;
+  APIKEY = process.env.REACT_APP_APIKEY;
+  PROJECTID = process.env.REACT_APP_PROJECTID;
 } else {
-  key1 = process.env.apiKEY;
-  projectID = process.env.projectID;
+  APIKEY = process.env.APIKEY;
+  PROJECTID = process.env.PROJECTID;
 }
 
 const config = {
-  apiKey: "AIzaSyDFGm-mttzW6Xt2SH6RVTxD17a5PgSppjg",
-  authDomain: "sleepinstockholm-48f6c.firebaseapp.com",
-  databaseURL: "https://sleepinstockholm-48f6c.firebaseio.com",
-  projectId: "sleepinstockholm-48f6c",
-  storageBucket: "sleepinstockholm-48f6c.appspot.com",
+  apiKey: APIKEY,
+  authDomain: PROJECTID + ".firebaseapp.com",
+  databaseURL: "https://" + PROJECTID + ".firebaseio.com",
+  projectId: PROJECTID,
+  storageBucket: PROJECTID + ".appspot.com",
   messagingSenderId: "302960952347",
   appId: "1:302960952347:web:d020adc85760473f0724be"
 };
