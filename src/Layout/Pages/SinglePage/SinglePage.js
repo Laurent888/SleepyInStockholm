@@ -79,7 +79,7 @@ const SinglePage = ({ product, match, validationBooking }) => {
             </p>
             <div className="map-section_map mt-3">
               <MapComponent
-                googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_APIKEY}`}
+                googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyALrUTE7CLkYFGbse41a4GSWvyg1jEmwGA`}
                 loadingElement={<div style={{ height: `100%` }} />}
                 containerElement={<div style={{ height: `400px` }} />}
                 mapElement={<div style={{ height: `100%` }} />}
