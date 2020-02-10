@@ -3,12 +3,15 @@ import "./NavButton.scss";
 import { auth } from "../../../firebase/firebase";
 import { resetBooking } from "../../../redux/user/userActions";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 const LogoutButton = ({ resetBooking }) => {
+  const history = useHistory();
   const handleLogout = () => {
     resetBooking();
     auth.signOut().then(() => {
       console.log("Signed out successful");
+      history.push("/");
     });
   };
   return (

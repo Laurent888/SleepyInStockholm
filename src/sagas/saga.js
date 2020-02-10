@@ -2,7 +2,7 @@ import { takeLatest, put, call } from "redux-saga/effects";
 import { db } from "../firebase/firebase";
 import { userTypes } from "../redux/user/userTypes";
 
-// Fetch the bookings again after the deletion in generator "removeBookingAsync"
+// Fetch the updated bookings after the deletion in generator "removeBookingAsync"
 function* allData(userId) {
   const data = yield db
     .collection("users")

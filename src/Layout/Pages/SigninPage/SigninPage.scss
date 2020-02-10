@@ -1,0 +1,18 @@
+.signin-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.test-credential {
+  margin-top: 1;
+  width: 35rem;
+  height: 15rem;
+  background-color: rgb(250, 250, 250);
+  box-shadow: 2px 2px 5px rgba(163, 163, 163, 0.637);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.4rem;
+  justify-content: space-around;
+}
