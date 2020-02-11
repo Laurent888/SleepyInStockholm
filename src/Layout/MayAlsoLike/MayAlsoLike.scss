@@ -1,0 +1,20 @@
+@import "../../variables";
+
+.mayAlsoLike {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 4rem;
+
+  &_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-title {
+    font-size: 3rem;
+    color: $grey-dark;
+    font-weight: 300;
+  }
+}

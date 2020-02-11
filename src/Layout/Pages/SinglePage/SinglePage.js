@@ -6,6 +6,7 @@ import OptionSection from "../../../Components/OptionSections/OptionSection";
 import MapComponent from "../../../Components/Maps/Maps";
 import BookingForm from "../../../Components/BookingForm/BookingForm";
 import ValidationModal from "../../../Components/ValidationModal/ValidationModal";
+import MayAlsoLike from "../../MayAlsoLike/MayAlsoLike";
 
 const SinglePage = ({ product, match, validationBooking }) => {
   // Look for the single appartment using the ID
@@ -103,6 +104,11 @@ const SinglePage = ({ product, match, validationBooking }) => {
         {validationBooking.title ? (
           <ValidationModal validationBooking={validationBooking} />
         ) : null}
+      </div>
+      <div className="section">
+        <div className="container">
+          <MayAlsoLike typeRoom={typeRoom} id={id} />
+        </div>
       </div>
     </div>
   );
