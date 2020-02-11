@@ -1,0 +1,13 @@
+@import "../../../variables";
+
+.filters-result-number {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  div {
+    color: $grey-dark;
+    font-size: 1.4rem;
+    margin-right: 0.5rem;
+  }
+}

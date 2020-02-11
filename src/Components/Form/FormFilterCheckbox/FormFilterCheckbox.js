@@ -30,7 +30,7 @@ const FormFilterCheckbox = props => {
   return (
     <form className="form-checkbox" onSubmit={handleSubmit}>
       <div className="form-checkbox_group">
-        <label>
+        <label className="checkbox">
           <input
             type="checkbox"
             name="studio"
@@ -38,12 +38,13 @@ const FormFilterCheckbox = props => {
             onChange={handleChange}
           />
           Studio
+          <span className="checkbox-custom"></span>
         </label>
       </div>
 
       <div className="form-checkbox_group">
         {" "}
-        <label>
+        <label className="checkbox">
           <input
             type="checkbox"
             name="twoRooms"
@@ -51,12 +52,13 @@ const FormFilterCheckbox = props => {
             onChange={handleChange}
           />
           Two rooms
+          <span className="checkbox-custom"></span>
         </label>
       </div>
 
       <div className="form-checkbox_group">
         {" "}
-        <label>
+        <label className="checkbox">
           {" "}
           <input
             type="checkbox"
@@ -65,6 +67,7 @@ const FormFilterCheckbox = props => {
             onChange={handleChange}
           />
           Three rooms
+          <span className="checkbox-custom"></span>
         </label>
       </div>
       <FilterTabBtn type="submit" label="Save" />

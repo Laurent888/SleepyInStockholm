@@ -4,13 +4,14 @@
   position: absolute;
   width: 20rem;
   height: auto;
-  background-color: #fff;
+  background-color: rgb(250, 250, 250);
   display: flex;
   flex-direction: column;
   padding: 1rem;
   top: 4rem;
   left: 1rem;
   box-shadow: 2px 2px 10px rgba(143, 143, 143, 0.459);
+  border-radius: 3px;
 
   &_title {
     font-size: 2rem;
